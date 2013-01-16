@@ -9,6 +9,7 @@ gem 'rails', '3.2.10'
 gem 'mysql2'
 gem 'sqlite3'
 gem 'nokogiri'
+gem 'whenever'
 gem 'haml-rails'
 
 # Gems used only for assets and not required
