@@ -34,7 +34,7 @@ namespace :feed do
     html.xpath("//div[@role = 'main']/div[@id = 'intLeft']/table/tr/td/p").each do |entry|
       case entry.text
         when /^(?<tubing_lanes_open>\d+) Tubing Lanes Open/ then tubing_lanes_open = $1 
-        when /^Tubing Carpet (?<tube_carpet_number>\d+): (?<status>Open|Closed)/ then tubing_carpets[$1] = $2
+        when /^Tubing Carpet (?<tube_carpet_number>\d+): (?<status>Open|Closed)/ then tubing_carpets[$1.to_i] = $2
         when /^(?<trails_open>\d+) of (?<trails_total>\d+) Trails Open/.match(entry.text) then trails_open, trails_total = $1, $2 
         when /^(?<tows_open>\d+) of (?<tows_total>\d+) Tows\/Carpet Lifts Open/.match(entry.text) then tows_open, tows_total = $1, $2 
       end
