@@ -1,0 +1,2 @@
+class TubingCarpetsController < ApplicationController
+end

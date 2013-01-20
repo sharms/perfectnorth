@@ -8,9 +8,14 @@ namespace :feed do
     titles = html.xpath("//div[@role = 'main']/div[@id = 'intLeft']/h4")
     bodies = html.xpath("//div[@role = 'main']/div[@id = 'intLeft']/p")
 
+    titles.each_with_index do |title, index|
+      logger.info "Creating news entries for #{title}: #{bodies[index]}"
+      News.create(:title => title, :body => bodies[index])
+    end
+
     # General
     html = Nokogiri::HTML(open("http://perfectnorth.com/snow_report.php"))
-    general = html.xpath("//div[@role = 'main']/div[@id = 'intLeft']/table/tr/td/p")[0].text
+    description = html.xpath("//div[@role = 'main']/div[@id = 'intLeft']/table/tr/td/p")[0].text
 
     trails_open = 0
     trails_total = 0
@@ -38,6 +43,21 @@ namespace :feed do
         when /^(?<trails_open>\d+) of (?<trails_total>\d+) Trails Open/.match(entry.text) then trails_open, trails_total = $1, $2 
         when /^(?<tows_open>\d+) of (?<tows_total>\d+) Tows\/Carpet Lifts Open/.match(entry.text) then tows_open, tows_total = $1, $2 
       end
+    end
+
+    General.create(:description => description, 
+                   :new_snow_last_7 => new_snow_last_7,
+                   :snow_base => snow_base,
+                   :tows_open => tows_open,
+                   :tows_total => tows_total,
+                   :trails_open => trails_open,
+                   :trails_total => trails_total,
+                   :tubing_lanes_open => tubing_lanes_open,
+                   :vertical_drop => vertical_drop)
+
+    trails_status.each do |name, status|
+      if status =~ /Open/ then status = true else status = false end
+      Slope.create(:name => name, :status => status)
     end
   end
 end

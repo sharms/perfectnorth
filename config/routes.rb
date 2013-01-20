@@ -1,4 +1,7 @@
 RailsApp::Application.routes.draw do
+  resources :tubing_carpets
+
+
   resources :slopes
   resources :generals
   resources :news
