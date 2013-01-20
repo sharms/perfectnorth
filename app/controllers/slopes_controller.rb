@@ -1,0 +1,2 @@
+class SlopesController < ApplicationController
+end

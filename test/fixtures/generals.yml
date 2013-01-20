@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  description: MyText
+  trails_open: 1
+  trails_total: 1
+  tows_open: 1
+  tows_total: 1
+  tubing_lanes_open: 1
+  vertical_drop: 1
+  new_snow_last_7: false
+  snow_base: MyString
+
+two:
+  description: MyText
+  trails_open: 1
+  trails_total: 1
+  tows_open: 1
+  tows_total: 1
+  tubing_lanes_open: 1
+  vertical_drop: 1
+  new_snow_last_7: false
+  snow_base: MyString
