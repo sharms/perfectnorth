@@ -64,5 +64,11 @@ namespace :feed do
       puts "Creating #{name}: #{status}"
       Slope.create(:name => name, :status => status)
     end
+
+    tubing_carpets.each_with_index do |status, index|
+      if status =~ /Open/ then status = true else status = false end
+      puts "Creating tubing_carpet #{index + 1}: #{status}"
+      TubingCarpet.create(:number => (index + 1), :status => status)
+    end
   end
 end
