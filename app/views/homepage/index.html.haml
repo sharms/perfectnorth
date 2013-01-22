@@ -1,5 +1,6 @@
 %h1 The Perfectnorth.com API
-%p This webservice provides simple to use methods to retrieve data on
+%p 
+  This webservice provides simple to use methods to retrieve data on
   = link_to "Perfectnorth.com", "http://www.perfectnorth.com"
   in neat json format.  The feed parser is nokogiri, and leverages xpath 
   selectors and regex to gather the data, as the website itself is not laid out
@@ -23,18 +24,21 @@
 
 %h2 Questions
 %h3 Why isn't this hosted on Heroku?
-%p Openshift.com provided everything I needed for the project, and included
+%p 
+  Openshift.com provided everything I needed for the project, and included
   more equivalent dynos.  Could easily move to Heroku however, it is just
   a git repo with rails and a cronjob.
 %h3 How do I get a specific item?
-%p All items are cached in a MySQL backend, so for the current day you
+%p 
+  All items are cached in a MySQL backend, so for the current day you
   can take the
   %strong id
   element of your result and query it through:
   curl http://perfectnorth-snowfoundry.rhcloud.com/slopes/5.json
 
 %h3 Historical Results
-%p This server stores results indefinitely, however the general, slopes, news
+%p 
+  This server stores results indefinitely, however the general, slopes, news
   and tubing_carpets calls will only return items since the start of the
   day today.  An optional date field could be added to each allowing historical
   traversal.
