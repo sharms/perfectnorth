@@ -1,7 +1,8 @@
 RailsApp::Application.routes.draw do
+  get "homepage/index"
+
+  root :to => 'homepage#index'
   resources :tubing_carpets
-
-
   resources :slopes
   resources :generals
   resources :news
