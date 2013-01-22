@@ -1,5 +1,5 @@
 class Slope < ActiveRecord::Base
-  attr_accessible :name, :status
+  attr_accessible :name, :open
   validates :name, :presence => true
-  validates :status, :inclusion => { :in => [true, false] }
+  validates :open, :inclusion => { :in => [true, false] }
 end

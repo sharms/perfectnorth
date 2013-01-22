@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130120184555) do
+ActiveRecord::Schema.define(:version => 20130122024731) do
 
   create_table "generals", :force => true do |t|
     t.text     "description"
@@ -36,14 +36,14 @@ ActiveRecord::Schema.define(:version => 20130120184555) do
 
   create_table "slopes", :force => true do |t|
     t.string   "name"
-    t.boolean  "status"
+    t.boolean  "trail_open"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
 
   create_table "tubing_carpets", :force => true do |t|
     t.integer  "number"
-    t.boolean  "status"
+    t.boolean  "trail_open"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
