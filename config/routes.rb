@@ -1,11 +1,13 @@
 RailsApp::Application.routes.draw do
-  get "homepage/index"
-
   root :to => 'homepage#index'
-  resources :tubing_carpets
-  resources :slopes
-  resources :generals
-  resources :news
+  match 'general' => 'generals#index'
+  match 'general/:id' => 'general#show'
+  match 'slopes' => 'slopes#index'
+  match 'slopes/:id' => 'slopes#show'
+  match 'tubing_carpets' => 'tubing_carpets#index'
+  match 'tubing_carpets/:id' => 'tubing_carpets#show'
+  match 'news' => 'news#index'
+  match 'news/:id' => 'news#show'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
