@@ -1,7 +1,7 @@
 RailsApp::Application.routes.draw do
   root :to => 'homepage#index'
   get 'general' => 'generals#index'
-  get 'general/:id' => 'general#show'
+  get 'general/:id' => 'generals#show'
   get 'slopes' => 'slopes#index'
   get 'slopes/:id' => 'slopes#show'
   get 'tubing_carpets' => 'tubing_carpets#index'
