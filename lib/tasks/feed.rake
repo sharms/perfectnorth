@@ -70,9 +70,9 @@ namespace :feed do
       end
     end
 
-    trails_status.each do |name, trail_open|
-      puts "Creating #{name}: #{trail_open}"
-      Slope.create(:name => name, :trail_open => trail_open)
+    trails_status.each do |name, is_open|
+      puts "Creating #{name}: #{is_open}"
+      Slope.create(:name => name, :is_open => is_open)
     end
   end
 
@@ -81,14 +81,14 @@ namespace :feed do
     tubing_carpets = []
 
     html.xpath("//div[@role = 'main']/div[@id = 'intLeft']/table/tr/td/p").each do |entry|
-      if entry.text =~ /^Tubing Carpet (?<tube_carpet_number>\d+): (?<trail_open>Open|Closed)/
+      if entry.text =~ /^Tubing Carpet (?<tube_carpet_number>\d+): (?<is_open>Open|Closed)/
         tubing_carpets[$1.to_i] = ($2 == "Open") ? true : false
       end
     end
 
-    tubing_carpets.from(1).each_with_index do |trail_open, index|
-      puts "Creating tubing_carpet #{index + 1}: #{trail_open}"
-      TubingCarpet.create(:number => (index + 1), :trail_open => trail_open)
+    tubing_carpets.from(1).each_with_index do |is_open, index|
+      puts "Creating tubing_carpet #{index + 1}: #{is_open}"
+      TubingCarpet.create(:number => (index + 1), :is_open => is_open)
     end
   end
 end

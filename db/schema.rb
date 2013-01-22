@@ -36,14 +36,14 @@ ActiveRecord::Schema.define(:version => 20130122024731) do
 
   create_table "slopes", :force => true do |t|
     t.string   "name"
-    t.boolean  "trail_open"
+    t.boolean  "is_open"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
 
   create_table "tubing_carpets", :force => true do |t|
     t.integer  "number"
-    t.boolean  "trail_open"
+    t.boolean  "is_open"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
