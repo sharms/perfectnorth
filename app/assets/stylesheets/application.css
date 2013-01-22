@@ -33,7 +33,11 @@ table caption {
 }
 
 table, th, td {
-  border: 1px solid #999;
+  border: 2px solid #999;
+}
+
+table th {
+  background: #9BF;
 }
 
 td {
