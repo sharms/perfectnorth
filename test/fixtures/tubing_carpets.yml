@@ -2,8 +2,8 @@
 
 one:
   number: 
-  status: false
+  is_open: false
 
 two:
   number: 
-  status: false
+  is_open: false
