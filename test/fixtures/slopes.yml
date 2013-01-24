@@ -2,8 +2,8 @@
 
 one:
   name: MyString
-  status: false
+  is_open: false
 
 two:
   name: MyString
-  status: false
+  is_open: false
