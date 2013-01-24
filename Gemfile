@@ -24,6 +24,8 @@ group :assets do
   gem 'uglifier', '>= 1.0.3'
 end
 
+gem 'rb-fsevent', :group => [:development]
+
 group :test, :development do
   gem "rspec-rails", "~> 2.0"
 end
