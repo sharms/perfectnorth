@@ -4,6 +4,7 @@ require File.expand_path("../../config/environment", __FILE__)
 require 'rspec/rails'
 require 'rspec/autorun'
 require 'capybara/rspec'
+require 'feed_fetch'
 require 'json'
 
 # Requires supporting ruby files with custom matchers and macros, etc,
@@ -39,4 +40,6 @@ RSpec.configure do |config|
   config.order = "random"
   config.include FactoryGirl::Syntax::Methods
   config.include JsonCompare
+  config.include PerfectnorthWebsite
+  config.include FeedFetch
 end
