@@ -12,16 +12,10 @@ describe "/slopes", :type => :api do
 
   context "retrieve a single result" do
     it "has factory data accessible from a json api" do
-      slope = create(:slopes)
+      slope = create(:slope)
       get "/slopes/#{slope.id}.json"
-      response = JSON.parse(last_response.body)
-      response.keys.each do |key|
-        if slope.send(key).instance_of? ActiveSupport::TimeWithZone
-          response[key].should eql(slope.send(key).to_json[1 .. -2])
-        else
-          response[key].should eql(slope.send(key))
-        end
-      end
+      json_eql_object(last_response.body, slope)
     end
   end
+
 end

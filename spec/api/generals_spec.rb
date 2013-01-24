@@ -14,14 +14,8 @@ describe "/general", :type => :api do
     it "has factory data accessible from a json api" do
       general = create(:general)
       get "/general/#{general.id}.json"
-      response = JSON.parse(last_response.body)
-      response.keys.each do |key|
-        if general.send(key).instance_of? ActiveSupport::TimeWithZone
-          response[key].should eql(general.send(key).to_json[1 .. -2])
-        else
-          response[key].should eql(general.send(key))
-        end
-      end
+      json_eql_object(last_response.body, general)
     end
   end
+
 end

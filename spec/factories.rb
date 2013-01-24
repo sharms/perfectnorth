@@ -17,8 +17,12 @@ FactoryGirl.define do
   end
 
   factory :slope do
+    name "Quadruple Black Diamond"
+    is_open true
   end
 
   factory :tubing_carpet do
+    number 1
+    is_open false
   end
 end
