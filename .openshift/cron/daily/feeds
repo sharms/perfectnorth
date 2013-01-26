@@ -1,3 +1,3 @@
 #!/bin/bash
-cd repo && RAILS_ENV=production bundle exec rake feed:fetch --silent
+cd $OPENSHIFT_REPO_DIR && RAILS_ENV=production bundle exec rake feed:fetch --silent
 
